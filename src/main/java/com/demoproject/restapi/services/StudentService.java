@@ -1,16 +1,18 @@
 package com.demoproject.restapi.services;
 
 import com.demoproject.restapi.models.Student;
+import com.demoproject.restapi.repositories.StudentRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentService {
-    public List<Student> findAllStudents() {
-        return List.of(
-                Student.builder().email("vasya@gmail.com").firstName("Vasya").build(),
-                Student.builder().email("p3ject@gmail.com").build()
-        );
+@AllArgsConstructor
+public class StudentService implements IStudentService {
+    private final StudentRepository repository;
+
+    public List<Student> findAll() {
+        return repository.findAll();
     }
 }

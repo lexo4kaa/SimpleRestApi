@@ -15,4 +15,9 @@ public class StudentService implements IStudentService {
     public List<Student> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public Student save(Student student) {
+        return repository.save(student);
+    }
 }

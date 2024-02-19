@@ -3,9 +3,7 @@ package com.demoproject.restapi.controllers;
 import com.demoproject.restapi.models.Student;
 import com.demoproject.restapi.services.StudentService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class StudentController {
     @GetMapping
     public List<Student> findAllStudents() {
         return studentService.findAll();
+    }
+
+    @PostMapping("save")
+    public Student saveStudent(@RequestBody Student student) {
+        return studentService.save(student);
     }
 }
